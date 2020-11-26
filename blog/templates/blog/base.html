@@ -29,8 +29,8 @@
 	  </button>
 	  <div class="collapse navbar-collapse" id="navbarToggle">
             <div class="navbar-nav mr-auto">
-              <a class="nav-item nav-link" href="/">Home</a>
-              <a class="nav-item nav-link" href="/about">About</a>
+              <a class="nav-item nav-link" href="{% url 'blog-home'  %}">Home</a>
+              <a class="nav-item nav-link" href="{% url 'blog-about'  %}">About</a>
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
@@ -41,8 +41,9 @@
 	</div>
       </nav>
     </header>
-
-    <!-- Main container -->
+    <!-- END Navigation Bar's code -->
+    
+    <!-- Main container : contains content block-->
     <main role="main" class="container">
       <div class="row">
 	<div class="col-md-8">
@@ -63,6 +64,7 @@
 	</div>
       </div>
     </main>
+    <!-- END Main container : contains content block-->
     
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
