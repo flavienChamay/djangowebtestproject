@@ -15,10 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
+from users import views as user_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    #register views that we created for account creations
+    path('register/', user_views.register, name='register'),
     #With empty path, the blog home page is the default home page of the whole site
     path('', include('blog.urls')),
+
 ]
