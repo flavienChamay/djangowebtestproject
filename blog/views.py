@@ -1,23 +1,12 @@
 from django.shortcuts import render
+#To use our queries instead of dummy datas:
+from .models import Post
 
-posts = [
-    {
-        'author' : 'Flavien Chamay',
-        'title' : 'Blog Post 1',
-        'content' : 'First post content',
-        'date_posted' : '11/11/2020'
-    },
-    {
-        'author' : 'Romain Chamay',
-        'title' : 'Blog Post 2',
-        'content' : 'Second post content',
-        'date_posted' : '12/11/2020'
-    }
-]
 
 def homePage(request):
     context = {
-        'posts' : posts
+        #import our data from the Query 
+        'posts' : Post.objects.all()
     }
     
     return render(request, 'blog/home.html', context)
