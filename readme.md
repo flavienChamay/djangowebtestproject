@@ -1,4 +1,5 @@
-DJANGO WEB TEST PROJECT
+DJANGO WEB TEST PROJECT:
+This project is based on tutorials of Corey Schafer
 
 HOW TO LAUNCH THE PROJECT:
 In a terminal at the root of the project, type:

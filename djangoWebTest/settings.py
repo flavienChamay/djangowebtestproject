@@ -124,3 +124,8 @@ STATIC_URL = '/static/'
 
 #Adjusting crispy forms with bootstrap4:
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+#Allows to redirect to the home page when logged in:
+LOGIN_REDIRECT_URL = 'blog-home'
+
+LOGIN_URL = 'login'

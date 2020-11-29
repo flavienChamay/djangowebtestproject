@@ -16,11 +16,20 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from users import views as user_views
+from django.contrib.auth import views as auth_views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     #register views that we created for account creations
     path('register/', user_views.register, name='register'),
+    #profile view for viewing profile if the user is logged in:
+    path('profile/', user_views.profile, name='profile'),
+    #login view for login:
+    #Must specify the template name for proper linking
+    path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
+    #Logout view for logout:
+    path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
     #With empty path, the blog home page is the default home page of the whole site
     path('', include('blog.urls')),
 
