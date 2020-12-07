@@ -5,13 +5,16 @@ from .views import (
     PostDetailView,
     PostCreateView,
     PostUpdateView,
-    PostDeleteView
+    PostDeleteView,
+    UserPostListView
 )
 
 
 urlpatterns = [
     #Empty path for the default home page
     path('', PostListView.as_view(), name='blog-home'),
+    #Link to a page that gives only the posts of a logged user
+    path('user/<str:username>', UserPostListView.as_view(), name='user-posts'),
     #To view each posts individually
     path('post/<int:pk>/', PostDetailView.as_view(), name='post-detail'),
     #For updating a post in the frontend of the site:
