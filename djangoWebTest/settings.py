@@ -134,3 +134,12 @@ LOGIN_URL = 'login'
 #Declusterising the storage of media (images for example):
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #Where our media files will be uploaded in our file system
 MEDIA_URL = '/media/' #through what URL the media files will be accessed
+
+
+#Handling the email's mechanisms:
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.protonmail.com'
+EMAIL_PORT = 1025
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')

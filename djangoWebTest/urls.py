@@ -31,9 +31,16 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
     #Logout view for logout:
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
+    #For resetting passwords:
+    path('password-reset/', auth_views.PasswordResetView.as_view(template_name='users/password_reset.html'), name='password_reset'),
     #With empty path, the blog home page is the default home page of the whole site
     path('', include('blog.urls')),
-
+    #Link to the page after the password reset has been successfull:
+    path('password-reset/done/', auth_views.PasswordResetDoneView.as_view(template_name='users/password_reset_done.html'), name='password_reset_done'),
+    #Confirm the password reset:
+    path('password-reset-confirm/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name='users/password_reset_confirm.html'), name='password_reset_confirm'),
+    #Handling password reset complete with success:
+    path('password-reset-complete/', auth_views.PasswordResetCompleteView.as_view(template_name='users/password_reset_complete.html'), name='password_reset_complete')
 ]
 
 if settings.DEBUG:
