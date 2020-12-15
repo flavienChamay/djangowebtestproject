@@ -13,8 +13,8 @@ class Profile(models.Model):
         return f'{self.user.username} Profile'
 
     #Overwriting save method for resizing image (triggered after our model is saved
-    def save(self):
-        super().save()
+    def save(self, *args, **kawrgs):
+        super().save(*args, **kawrgs)
         img = Image.open(self.image.path)
         
         if img.height > 300 or img.width > 300:
